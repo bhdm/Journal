@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}">
+
+            {% stylesheets '@AppBundle/Resources/public/less/*' filter='less' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+
+        {% endblock %}
+        {% block javascripts %}
+            <!-- jquery libs -->
+            <script src="{{ asset('assets/jquery/dist/jquery.min.js') }}"></script>
+            <script src="{{ asset('assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+            <!-- end jquery libs -->
+
+            <!-- custom libs -->
+            <script src="{{ asset('bundles/app/js/layout.js') }}"></script>
+            <!-- end custom libs -->
+
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+            <!--[if lte IE 8]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+            <![endif]-->
+        {% endblock %}
+    </head>
+
+    <body>
+        {{ include('AppBundle::navigation.html.twig') }}
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="container">
+            <div class="row">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
