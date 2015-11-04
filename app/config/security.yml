@@ -21,7 +21,7 @@ security:
             entity: { class: AppBundle:User, property: username }
 
     firewalls:
-        everything:
+        user:
             pattern: ^/
             form_login:
                 check_path: /login_check

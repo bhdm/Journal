@@ -1,12 +1,11 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h2>Изменение журнала</h2>
+    <h2>Профиль</h2>
     <div class="well">
         <div class="row">
             <div class="col-xs-2"></div>
             <div class="col-xs-8">
-                <img src="/uploads/{{ journal.photo }}" class="img-thumbnail">
                 <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         {{ form_widget(form) }}
