@@ -86,10 +86,23 @@ class PostController extends Controller
         $journal = $this->getDoctrine()->getRepository('AppBundle:Journal')->findOneBy(['id'=> $journalId, 'enabled' => true]);
         $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBy(['journal' => $journal, 'enabled' => true, 'id' => $id]);
         if ($type === 'pdf-ru' || $type === 'pdf-en'){
-            $mpdfService = $this->get('tfox.mpdfport');
+
+            $mpdfService = $this->container->get('tfox.mpdfport');
+            $arguments = array(
+//            'constructorArgs' => array('utf-8', 'A4', 0 ,0 ,0 ,0, 0 ), //Constructor arguments. Numeric array. Don't forget about points 2 and 3 in Warning section!
+                'writeHtmlMode' => null, //$mode argument for WriteHTML method
+                'writeHtmlInitialise' => null, //$mode argument for WriteHTML method
+                'writeHtmlClose' => null, //$close argument for WriteHTML method
+                'outputFilename' => null, //$filename argument for Output method
+                'outputDest' => null, //$dest argument for Output method
+            );
+            $mpdfService->ignore_invalid_utf8 = true;
+            $mpdfService->allow_charset_conversion = false;
+            $mpdfService->debug = true;
             $html = $this->renderView('AppBundle:Post:show_mini.html.twig',['journal'=> $journal, 'post' => $post , 'type' => $type]);
-            $response = $mpdfService->generatePdfResponse($html);
-            return new $response;
+
+            return $mpdfService->generatePdfResponse($html, $arguments);
+
         }
         return array( 'journal'=> $journal, 'post' => $post , 'type' => $type );
     }
