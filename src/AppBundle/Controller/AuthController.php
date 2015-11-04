@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use AppBundle\Form\ProfileType;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -47,4 +48,30 @@ class AuthController extends Controller
 
         return ['form' => $form->createView(), 'journal' => $item];
     }
+
+    /**
+     * @Route("/setuser", name="setUser")
+     * @Template()
+     */
+    public function setUserAction(){
+        return [];
+        $em = $this->getDoctrine()->getManager();
+        for ( $i = 1 ; $i <= 128 ; $i ++){
+            if ($i < 10 ){
+                $pass = 'BLS2014MS000';
+            }elseif($i < 100){
+                $pass = 'BLS2014MS00';
+            }else{
+                $pass = 'BLS2014MS0';
+            }
+            $user = new User();
+            $user->setUsername('user');
+            $user->setPassword($pass.$i);
+            $user->setRoles('ROLE_USER');
+            $user->setSalt(0);
+            $em->persist($user);
+            $em->flush($user);
+        }
+    }
+
 }
