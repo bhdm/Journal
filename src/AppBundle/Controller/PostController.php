@@ -75,7 +75,7 @@ class PostController extends Controller
             $em->remove($item);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl('post_list'));
+        return $this->redirect($this->generateUrl('post_list', ['journalId' => $journalId]));
     }
 
     /**
