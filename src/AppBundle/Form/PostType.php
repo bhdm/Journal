@@ -18,7 +18,11 @@ class PostType extends AbstractType
             ->add('title', null, ['label' => 'Название статьи'])
             ->add('description', null, ['label' => 'Описание статьи', 'attr' => ['class' => 'ckeditor']])
             ->add('body', null, ['label' => 'Текст статьи', 'attr' => ['class' => 'ckeditor']])
-            ->add('author', null, ['label' => 'Авторы статьи'])
+
+            ->add('titleEn', null, ['label' => 'Название статьи (Англ)'])
+            ->add('descriptionEn', null, ['label' => 'Описание статьи (Англ)', 'attr' => ['class' => 'ckeditor']])
+            ->add('bodyEn', null, ['label' => 'Текст статьи (Англ)', 'attr' => ['class' => 'ckeditor']])
+            ->add('author', null, ['label' => 'Авторы'])
             ->add('enabled','choice',  array(
                 'empty_value' => false,
                 'choices' => array(

@@ -28,6 +28,21 @@ class Post extends BaseEntity{
     protected $title;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $titleEn;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $descriptionEn;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $bodyEn;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $description;
@@ -127,6 +142,55 @@ class Post extends BaseEntity{
     {
         $this->journal = $journal;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDescriptionEn()
+    {
+        return $this->descriptionEn;
+    }
+
+    /**
+     * @param mixed $descriptionEn
+     */
+    public function setDescriptionEn($descriptionEn)
+    {
+        $this->descriptionEn = $descriptionEn;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBodyEn()
+    {
+        return $this->bodyEn;
+    }
+
+    /**
+     * @param mixed $bodyEn
+     */
+    public function setBodyEn($bodyEn)
+    {
+        $this->bodyEn = $bodyEn;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitleEn()
+    {
+        return $this->titleEn;
+    }
+
+    /**
+     * @param mixed $titleEn
+     */
+    public function setTitleEn($titleEn)
+    {
+        $this->titleEn = $titleEn;
+    }
+
 
 
 }

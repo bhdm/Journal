@@ -22,7 +22,8 @@
         "knplabs/knp-paginator-bundle": "^2.4",
         "stof/doctrine-extensions-bundle": "dev-master",
         "iphp/filestore-bundle": "0.2.*",
-        "doctrine/doctrine-fixtures-bundle": "^2.2"
+        "doctrine/doctrine-fixtures-bundle": "^2.2",
+        "tfox/mpdf-port-bundle": "1.2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

@@ -1,7 +1,29 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('#scroller').fadeIn();
+                } else {
+                    $('#scroller').fadeOut();
+                }
+            });
+            $('#scroller').click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
-    <h2>{{ journal.title }}</h2>
+    <h2><a href="{{ path('post_list',{'journalId' : journal.id }) }}">{{ journal.title }}</a></h2>
+    <div id="scroller"></div>
     <div class="well">
         <div class="row">
             <div class="col-xs-2"></div>

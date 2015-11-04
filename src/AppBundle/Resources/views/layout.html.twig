@@ -37,7 +37,9 @@
     </head>
 
     <body>
-        {{ include('AppBundle::navigation.html.twig') }}
+        {% block navigation %}
+            {{ include('AppBundle::navigation.html.twig') }}
+        {% endblock %}
         <br />
         <br />
         <br />

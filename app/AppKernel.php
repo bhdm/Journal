@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Iphp\FileStoreBundle\IphpFileStoreBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new TFox\MpdfPortBundle\TFoxMpdfPortBundle(),
             new AppBundle\AppBundle(),
         );
 

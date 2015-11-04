@@ -1,0 +1,24 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block navigation %}{% endblock %}
+
+{% block body %}
+    <h2>{{ journal.title }}</h2>
+    <div class="well">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                {% if type == 'pdf-ru' %}
+                    <h2>{{ post.title }}</h2>
+                    <div class="">{{ post.description |raw }}</div>
+                    <div class="">{{ post.body |raw }}</div>
+                {% elseif type == 'pdf-ru' %}
+                    <h2>{{ post.titleEn }}</h2>
+                    <div class="">{{ post.descriptionEn |raw }}</div>
+                    <div class="">{{ post.bodyEn |raw }}</div>
+                {% endif %}
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+{% endblock %}

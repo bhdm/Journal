@@ -84,12 +84,18 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/journal/{journalId}/post/{id}/show", name="post_show")
+     * @Route("/journal/{journalId}/post/{id}/show/{type}", name="post_show", defaults={ "type" = null })
      * @Template("AppBundle:Post:show.html.twig")
      */
-    public function showAction($journalId, $id){
+    public function showAction($journalId, $id, $type = null){
         $journal = $this->getDoctrine()->getRepository('AppBundle:Journal')->findOneBy(['id'=> $journalId, 'enabled' => true]);
         $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBy(['journal' => $journal, 'enabled' => true, 'id' => $id]);
-        return array( 'journal'=> $journal, 'post' => $post );
+        if ($type === 'pdf-ru' || $type === 'pdf-en'){
+            $mpdfService = $this->get('tfox.mpdfport');
+            $html = $this->renderView('AppBundle:Post:show_mini.html.twig',['journal'=> $journal, 'post' => $post , 'type' => $type]);
+            $response = $mpdfService->generatePdfResponse($html);
+            return new $response;
+        }
+        return array( 'journal'=> $journal, 'post' => $post , 'type' => $type );
     }
 }
