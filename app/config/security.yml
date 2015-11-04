@@ -33,4 +33,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
     access_control:
-        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /login*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /css*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /assets*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /.*, role: ROLE_USER }
