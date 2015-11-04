@@ -5,3 +5,13 @@ app:
 _assetic:
     resource: .
     type:     assetic
+
+_security_login:
+    pattern:  /admin/login
+    defaults: { _controller: AppBundle:Auth:login }
+
+login_check:
+    path: /login_check
+
+_security_logout:
+    pattern:  /logout

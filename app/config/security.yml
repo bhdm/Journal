@@ -4,10 +4,10 @@
 
 security:
     encoders:
-        AppBundle\Entity\User:
-            algorithm: sha512
-            encode-as-base64: true
-            iterations: 10
+        AppBundle\Entity\User: plaintext
+#            algorithm: sha512
+#            encode-as-base64: true
+#            iterations: 10
 
     role_hierarchy:
         ROLE_USER: [JOURNAL_SHOW, POST_SHOW]

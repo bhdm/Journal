@@ -10,11 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 class AuthController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
-     * @Template("AppBundle:Auth:index.html.twig")
+     * @Route("/login", name="login")
+     * @Template()
      */
-    public function indexAction(Request $request)
-    {
-        return array();
+    public function loginAction(){
+        return [];
     }
 }
