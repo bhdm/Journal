@@ -16,9 +16,9 @@ class PostType extends AbstractType
     {
         $builder
             ->add('title', null, ['label' => 'Название статьи'])
-            ->add('description', null, ['label' => 'Описание статьи'])
-            ->add('body', null, ['label' => 'Текст статьи'])
-            ->add('author', null, ['label' => 'Текст статьи'])
+            ->add('description', null, ['label' => 'Описание статьи', 'attr' => ['class' => 'ckeditor']])
+            ->add('body', null, ['label' => 'Текст статьи', 'attr' => ['class' => 'ckeditor']])
+            ->add('author', null, ['label' => 'Авторы статьи'])
             ->add('enabled','choice',  array(
                 'empty_value' => false,
                 'choices' => array(

@@ -38,7 +38,7 @@ class Post extends BaseEntity{
     protected $body;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string")
      */
     protected $author;
 

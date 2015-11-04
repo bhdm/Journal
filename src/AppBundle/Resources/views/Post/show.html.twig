@@ -1,0 +1,16 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <h2>{{ journal.title }}</h2>
+    <div class="well">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                <h2>{{ post.title }}</h2>
+                <div class="">{{ post.description |raw }}</div>
+                <div class="">{{ post.body |raw }}</div>
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+{% endblock %}

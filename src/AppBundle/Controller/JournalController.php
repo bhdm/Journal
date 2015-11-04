@@ -59,11 +59,13 @@ class JournalController extends Controller
         $formData = $form->handleRequest($request);
         if ($formData->isValid()){
             $item = $formData->getData();
+
             $file = $item->getPhoto();
             $fileName = time().'.'.$file->guessExtension();
             $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/uploads';
             $file->move($brochuresDir, $fileName);
             $item->getPhoto($fileName);
+
             $em->persist($item);
             $em->flush();
             $em->refresh($item);
