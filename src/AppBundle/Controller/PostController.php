@@ -56,15 +56,10 @@ class PostController extends Controller
         $formData = $form->handleRequest($request);
         if ($formData->isValid()){
             $item = $formData->getData();
-            $file = $item->getPhoto();
-            $fileName = time().'.'.$file->guessExtension();
-            $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/uploads';
-            $file->move($brochuresDir, $fileName);
-            $item->getPhoto($fileName);
             $em->persist($item);
             $em->flush();
             $em->refresh($item);
-            return $this->redirect($this->generateUrl('post_list'));
+            return $this->redirect($this->generateUrl('post_list', ['journalId' => $journalId]));
         }
 
         return ['form' => $form->createView(), 'post' => $item];
