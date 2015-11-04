@@ -19,7 +19,16 @@ class PostType extends AbstractType
             ->add('description', null, ['label' => 'Описание статьи'])
             ->add('body', null, ['label' => 'Текст статьи'])
             ->add('author', null, ['label' => 'Текст статьи'])
-            ->add('enabled', 'choice', ['label' => 'Доступ', 'choice_list' => [1 => 'Открыт', 0 => 'Закрыт']])
+            ->add('enabled','choice',  array(
+                'empty_value' => false,
+                'choices' => array(
+                    '1' => 'Открыт',
+                    '0' => 'Закрыт',
+                ),
+                'label' => 'Доступ',
+                'required'  => false,
+            ))
+            ->add('submit','submit', ['label' => 'Сохранить'])
         ;
     }
     

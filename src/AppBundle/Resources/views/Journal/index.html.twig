@@ -2,6 +2,23 @@
 
 {% block body %}
     <h2>Список журналов</h2>
+    {% if is_granted('JOURNAL_EDIT') %}
+        <a href="{{ path('journal_add') }}">Добавить новый журнал</a>
+    {% endif %}
     <div class="well">
+        {% for j in journals %}
+            <div class="row">
+                <div class="col-xs-3">
+                    <img src="/uploads/{{ j.photo }}" class="img-thumbnail">
+                </div>
+                <div class="col-xs-6">
+                    {{ j.title }}
+                </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-1">
+                    <a href="{{ path('journal_remove',{'id' : j.id }) }}"><span class="glyphicon glyphicon-remove text-danger">&nbsp;</span></a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

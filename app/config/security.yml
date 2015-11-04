@@ -11,6 +11,7 @@ security:
 
     role_hierarchy:
         ROLE_USER: [JOURNAL_SHOW, POST_SHOW]
+        ROLE_ADMIN: [ROLE_USER, JOURNAL_EDIT, JOURNAL_REMOVE]
 
     providers:
         main:

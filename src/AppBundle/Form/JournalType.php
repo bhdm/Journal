@@ -15,11 +15,20 @@ class JournalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', null, ['label' => 'Название журнала'])
-            ->add('photo', null, ['label' => 'Фото обложки'])
+            ->add('title', null, ['label' => 'Название'])
+            ->add('photo', 'file', ['label' => 'Фото обложки'])
             ->add('year', null, ['label' => 'Год выпуска'])
             ->add('month', null, ['label' => 'Месяц выпуска'])
-            ->add('enabled', 'choice', ['label' => 'Доступ', 'choice_list' => [1 => 'Открыт', 0 => 'Закрыт']])
+            ->add('enabled','choice',  array(
+                'empty_value' => false,
+                'choices' => array(
+                    '1' => 'Открыт',
+                    '0' => 'Закрыт',
+                ),
+                'label' => 'Доступ',
+                'required'  => false,
+            ))
+            ->add('submit','submit', ['label' => 'Сохранить'])
         ;
     }
     
