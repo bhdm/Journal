@@ -85,6 +85,10 @@ class JournalController extends Controller
             if (is_file(__DIR__.'/../../../../web/uploads/'.$item->getPhoto())){
                 unlink(__DIR__.'/../../../../web/uploads/'.$item->getPhoto());
             }
+            foreach ($item->getPosts() as $p){
+                $em->remove($p);
+                $em->flush();
+            }
             $em->remove($item);
             $em->flush();
         }
