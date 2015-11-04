@@ -1,0 +1,89 @@
+/*
+ * Palette
+ */
+/*
+ * End Palette
+ */
+@font-face {
+  font-family: 'Arsenal';
+  src: local('Arsenal-Regular'), url('../font/arsenal-regular.woff2') format('woff2'), url('../font/arsenal-regular.woff') format('woff'), url('../font/arsenal-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Arsenal';
+  src: local('Arsenal-Italic'), url('../font/arsenal-italic.woff2') format('woff2'), url('../font/arsenal-italic.woff') format('woff'), url('../font/arsenal-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Arsenal';
+  src: local('Arsenal-Bold'), url('../font/arsenal-bold.woff2') format('woff2'), url('../font/arsenal-bold.woff') format('woff'), url('../font/arsenal-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Arsenal';
+  src: local('Arsenal-BoldItalic'), url('../font/arsenal-bolditalic.woff2') format('woff2'), url('../font/arsenal-bolditalic.woff') format('woff'), url('../font/arsenal-bolditalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+h1 {
+  color: #444;
+  font-family: Arsenal;
+}
+.navbar {
+  background: #0088cc;
+}
+.navbar ul.nav li a {
+  color: #FFF;
+}
+.navbar ul.nav li a:hover {
+  background: #006699;
+}
+.navbar ul.nav li a:active {
+  background: #006699;
+}
+.navbar ul.nav li a:focus {
+  background: #006699;
+}
+#logo img {
+  width: 100px;
+  padding: 5px;
+}
+.form-signin {
+  width: 300px;
+  margin: 0 auto;
+}
+.form-signin-heading {
+  font-size: 18px;
+}
+.journal-title {
+  font-size: 20px;
+}
+.journal-desc {
+  font-size: 16px;
+}
+.img-thumbnail {
+  max-width: 150px;
+}
+#scroller {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  background: transparent url("/bundles/app/images/arrow.png") no-repeat left top;
+  -moz-background-size: 100%;
+  /* Firefox 3.6+ */
+  -webkit-background-size: 100%;
+  /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%;
+  /* Opera 9.6+ */
+  background-size: 100%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: none;
+}
+.tabs {
+  padding: 0 30px;
+}
