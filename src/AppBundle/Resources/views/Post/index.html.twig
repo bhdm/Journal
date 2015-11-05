@@ -53,9 +53,11 @@
             <div class="row">
                 <div class="tabs">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#desc{{ p.id }}" aria-controls="desc{{ p.id }}" role="tab" data-toggle="tab">Описание</a></li>
-                        <li role="presentation"><a href="#descen{{ p.id }}" aria-controls="descen{{ p.id }}" role="tab" data-toggle="tab">Описание (Англ)</a></li>
+                        <li role="presentation" class="active"><a href="#desc{{ p.id }}" aria-controls="desc{{ p.id }}" role="tab" data-toggle="tab">Абстракт</a></li>
+                        <li role="presentation"><a href="#descen{{ p.id }}" aria-controls="descen{{ p.id }}" role="tab" data-toggle="tab">Abstract</a></li>
                         <li role="presentation"><a href="#author{{ p.id }}" aria-controls="author{{ p.id }}" role="tab" data-toggle="tab">Авторы</a></li>
+                        <li role="presentation"><a href="#keyword{{ p.id }}" aria-controls="keyword{{ p.id }}" role="tab" data-toggle="tab">Ключ. слова</a></li>
+                        <li role="presentation"><a href="#keyworden{{ p.id }}" aria-controls="keyworden{{ p.id }}" role="tab" data-toggle="tab">Keywords</a></li>
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="desc{{ p.id }}">
@@ -65,6 +67,14 @@
                         <div role="tabpanel" class="tab-pane" id="descen{{ p.id }}">
                             <br />
                             {{ p.descriptionEn | raw }}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="keyword{{ p.id }}">
+                            <br />
+                            {{ p.keywords | raw }}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="keyworden{{ p.id }}">
+                            <br />
+                            {{ p.keywordsEn | raw }}
                         </div>
                         <div role="tabpanel" class="tab-pane" id="author{{ p.id }}">
                             <br />

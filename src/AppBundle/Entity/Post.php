@@ -38,6 +38,16 @@ class Post extends BaseEntity{
     protected $descriptionEn;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $keywords;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $keywordsEn;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $bodyEn;
@@ -189,6 +199,38 @@ class Post extends BaseEntity{
     public function setTitleEn($titleEn)
     {
         $this->titleEn = $titleEn;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * @param mixed $keywords
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKeywordsEn()
+    {
+        return $this->keywordsEn;
+    }
+
+    /**
+     * @param mixed $keywordsEn
+     */
+    public function setKeywordsEn($keywordsEn)
+    {
+        $this->keywordsEn = $keywordsEn;
     }
 
 

@@ -46,6 +46,21 @@ class Journal extends BaseEntity
      */
     protected $month;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $keywords;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $tom;
+
     public function __construct(){
         $this->posts = new ArrayCollection();
     }
@@ -129,4 +144,55 @@ class Journal extends BaseEntity
     {
         $this->month = $month;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * @param mixed $keywords
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTom()
+    {
+        return $this->tom;
+    }
+
+    /**
+     * @param mixed $tom
+     */
+    public function setTom($tom)
+    {
+        $this->tom = $tom;
+    }
+
+
+
 }

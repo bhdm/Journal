@@ -19,6 +19,10 @@ class JournalType extends AbstractType
             ->add('photo', 'file', ['label' => 'Фото обложки', 'data_class' => null])
             ->add('year', null, ['label' => 'Год выпуска'])
             ->add('month', null, ['label' => 'Месяц выпуска'])
+            ->add('description', null, ['label' => 'Описание'])
+            ->add('keywords', null, ['label' => 'Ключевые слова'])
+            ->add('tom', null, ['label' => 'Том'])
+
             ->add('enabled','choice',  array(
                 'empty_value' => false,
                 'choices' => array(
