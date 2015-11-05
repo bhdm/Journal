@@ -54,18 +54,20 @@ class AuthController extends Controller
      * @Template()
      */
     public function setUserAction(){
-        return [];
         $em = $this->getDoctrine()->getManager();
         for ( $i = 1 ; $i <= 128 ; $i ++){
             if ($i < 10 ){
                 $pass = 'BLS2014MS000';
+                $login = 'EJIM05780-000';
             }elseif($i < 100){
                 $pass = 'BLS2014MS00';
+                $login = 'EJIM05780-00';
             }else{
                 $pass = 'BLS2014MS0';
+                $login = 'EJIM05780-0';
             }
             $user = new User();
-            $user->setUsername('user');
+            $user->setUsername($login.$i);
             $user->setPassword($pass.$i);
             $user->setRoles('ROLE_USER');
             $user->setSalt(0);
