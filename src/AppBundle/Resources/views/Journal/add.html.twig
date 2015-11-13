@@ -1,5 +1,10 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <h2>Добавление журнала</h2>
     <div class="well">

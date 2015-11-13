@@ -1,16 +1,16 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <div class="well">
+    <div class="">
         <div>
             <form class="form-signin" action="{{ path('_login_check') }}" method="post">
                 <h2 class="form-signin-heading">Авторизация</h2>
-                Если у Вас есть персональный код подписки и активации  - введите их в логин и пароль соответственно.
+                <div class="well well-sm">Если у Вас есть персональный код подписки и активации  - введите их в логин и пароль соответственно.</div>
                 <label for="inputEmail" class="sr-only">Email</label>
-                <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" name="_username">
+                <input type="text" id="inputEmail" class="form-control" placeholder="Email " required="" autofocus="" name="_username">
                 <br />
                 <label for="inputPassword" class="sr-only">Пароль</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""  name="_password">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required=""  name="_password">
                 <br />
                 <div class="text-right">
                     <button class="btn btn-primary" type="submit">Войти</button>
