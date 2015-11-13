@@ -16,7 +16,7 @@ class JournalType extends AbstractType
     {
         $builder
             ->add('title', null, ['label' => 'Название'])
-            ->add('photo', 'file', ['label' => 'Фото обложки', 'data_class' => null])
+            ->add('photo', 'file', ['label' => 'Фото обложки', 'data_class' => null, 'required' => false])
             ->add('year', null, ['label' => 'Год выпуска'])
             ->add('month', null, ['label' => 'Месяц выпуска'])
             ->add('tom', null, ['label' => 'Том'])

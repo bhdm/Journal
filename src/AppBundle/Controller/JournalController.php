@@ -34,10 +34,12 @@ class JournalController extends Controller
             $item = $formData->getData();
 
             $file = $item->getPhoto();
-            $fileName = time().'.'.$file->guessExtension();
-            $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads';
-            $file->move($brochuresDir, $fileName);
-            $item->setPhoto($fileName);
+            if (is_object($file)){
+                $fileName = time().'.'.$file->guessExtension();
+                $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads';
+                $file->move($brochuresDir, $fileName);
+                $item->setPhoto($fileName);
+            }
 
             $em->persist($item);
             $em->flush();
@@ -55,19 +57,23 @@ class JournalController extends Controller
     public function editAction(Request $request, $id){
         $em = $this->getDoctrine()->getManager();
         $item = $em->getRepository('AppBundle:Journal')->findOneById($id);
+        $image = $item->getPhoto();
         $form = $this->createForm(new JournalType($em), $item);
         $formData = $form->handleRequest($request);
         if ($formData->isValid()){
             $item = $formData->getData();
 
             $file = $item->getPhoto();
-            $fileName = time().'.'.$file->guessExtension();
-            $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/uploads';
-            $file->move($brochuresDir, $fileName);
-            $item->getPhoto($fileName);
+            if (is_object($file)){
+                $fileName = time().'.'.$file->guessExtension();
+                $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads';
+                $file->move($brochuresDir, $fileName);
+                $item->setPhoto($fileName);
+            }else{
+                $item->setPhoto($image);
+            }
 
-            $em->persist($item);
-            $em->flush();
+            $em->flush($item);
             $em->refresh($item);
             return $this->redirect($this->generateUrl('journal_list'));
         }
