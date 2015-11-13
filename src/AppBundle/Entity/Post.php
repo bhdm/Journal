@@ -67,6 +67,11 @@ class Post extends BaseEntity{
      */
     protected $author;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $pages;
+
     public function __construct(){
         $this->author = array();
     }
@@ -231,6 +236,22 @@ class Post extends BaseEntity{
     public function setKeywordsEn($keywordsEn)
     {
         $this->keywordsEn = $keywordsEn;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param mixed $pages
+     */
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
     }
 
 

@@ -61,6 +61,12 @@ class Journal extends BaseEntity
      */
     protected $tom;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $pages;
+
+
     public function __construct(){
         $this->posts = new ArrayCollection();
     }
@@ -191,6 +197,22 @@ class Journal extends BaseEntity
     public function setTom($tom)
     {
         $this->tom = $tom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param mixed $pages
+     */
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
     }
 
 
